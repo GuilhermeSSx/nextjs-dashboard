@@ -9,8 +9,11 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+import { unstable_noStore as noStore } from 'next/cache'; //desabilitar o cache
+
 
 export async function fetchRevenue() {
+  noStore();
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
@@ -24,6 +27,7 @@ export async function fetchRevenue() {
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
     // console.log('Data fetch complete after 3 seconds.');
+    // console.log(data.rows);
 
     return data.rows;
   } catch (error) {

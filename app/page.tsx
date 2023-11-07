@@ -1,4 +1,5 @@
 import AcmeLogo from '@/app/acme-logo';
+import Image from 'next/image';
 
 import Link from 'next/link';
 export default function Page() {
@@ -17,7 +18,7 @@ export default function Page() {
             , brought to you by Vercel.
           </p>
           <Link
-            href="/login"
+            href="/dashboard"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
             <span>Log in</span>
@@ -25,6 +26,21 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
+          <Image
+            src="/hero-desktop.png"
+            width={750}
+            height={520}
+            objectFit="contain"
+            className="hidden md:block"
+            alt="Screenshots of the dashboard project showing desktop and mobile versions"
+          />
+          <Image
+            src="/hero-mobile.png"
+            width={560}
+            height={620}
+            className="block md:hidden"
+            alt="Screenshot of the dashboard project showing mobile version"
+          />
         </div>
       </div>
     </main>
